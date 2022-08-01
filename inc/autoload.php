@@ -14,7 +14,7 @@ class autoload
     private static function initDirConst()
     {
         define('DS',DIRECTORY_SEPARATOR); // 定义文件分隔符
-        define('CORE', __DIR__ . DS.'class');
+        define('CORE', __DIR__ );
     }
 
     // 设定自动加载
@@ -27,11 +27,11 @@ class autoload
     private static function loadCore($clsname)
     {
         //解决basename在win与linux返回值不一致的问题
-        $clsname = str_replace('\\','/',$clsname);
+        $clsname = str_replace(['\\','/'],DS,$clsname);
         //组合文件
-        $file = CORE.DS. basename($clsname) . '.php';
+        $file = CORE.DS. $clsname . '.php';
 
-        if(is_file($file)){var_dump($file);
+        if(is_file($file)){
             include_once $file;
         }
     }
@@ -39,7 +39,7 @@ class autoload
     // 加载所有func目录中的文件
     private static function loadFunc()
     {
-        foreach(glob(__DIR__.'/func/*.php') as $func)
+        foreach(glob(__DIR__ . '/Func/*.php') as $func)
         {
             require_once $func;
         }

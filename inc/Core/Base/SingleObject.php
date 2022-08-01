@@ -1,6 +1,8 @@
 <?php
+namespace Core\Base;
 
-class Base
+// 单例模式基类
+class SingleObject
 {
     // 存储当前对象
     protected static $instance  = [];

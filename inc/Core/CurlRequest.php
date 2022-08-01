@@ -1,6 +1,8 @@
 <?php
+namespace Core;
+use Core\Base\SingleObject;
 
-class CurlRequest extends Base
+class CurlRequest extends SingleObject
 {
     private $ch;
 

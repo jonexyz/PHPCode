@@ -2,4 +2,4 @@
 
 require './inc/autoload.php';
 
-CurlRequest::getInstance()->request();
+Core\CurlRequest::getInstance()->request();
