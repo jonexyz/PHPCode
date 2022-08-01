@@ -3,5 +3,3 @@
 require './inc/autoload.php';
 
 CurlRequest::getInstance()->request();
-
-test();
